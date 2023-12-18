@@ -1,2 +1,2 @@
 # E-learning
-This is an E-Commerce project created with Django.
+This is an E-Learning project created with Django.
