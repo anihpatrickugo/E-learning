@@ -144,7 +144,10 @@ STATIC_DIR = BASE_DIR.joinpath('static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# To take anonymous user to the sigin page
 LOGIN_URL = 'signin/'
+
+#   Redirect Url after login
 LOGIN_REDIRECT_URL = '/elearn/'
 
 #   allauth settings
