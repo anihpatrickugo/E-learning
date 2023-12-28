@@ -32,14 +32,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of allauth
-    'django.contrib.auth.backends.ModelBackend',
-
-    #Allauth specifice authentication methods, such as login by email
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,13 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'basic',
-    # Necessary for auth integration
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    #Users app    
-    'users',
+    'basic'
 ]
 
 MIDDLEWARE = [
@@ -64,9 +50,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    # allauth middleware
-    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'elearn.urls'
@@ -79,7 +62,6 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                # allauth context needs the next line
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -143,27 +125,3 @@ STATIC_DIR = BASE_DIR.joinpath('static')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# To take anonymous user to the sigin page
-LOGIN_URL = 'signin/'
-
-#   Redirect Url after login
-LOGIN_REDIRECT_URL = '/elearn/'
-
-#   allauth settings
-
-ACCOUNT_FORMS = {
-    'login': 'allauth.account.forms.LoginForm',
-}
-
-#Use of email for authentication throughout and not username
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-
-
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
-
-#Users Settings
-AUTH_USER_MODEL = 'users.CustomUser'
