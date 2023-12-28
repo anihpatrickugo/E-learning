@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from basic import views
 
+
 urlpatterns = [
+    path('', views.sayConnected, name='status'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('elearn/', include('basic.urls')),
-    path('', views.sayConnected, name='status')
+    
 ]

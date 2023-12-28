@@ -1,10 +1,9 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>E-Learning</title>
-    </head>
+{% extends 'basic\base.html' %}
 
-    <body>
-        <h1>Connected</h1>
-    </body>
-</html>
+{% block body %}
+    {% if not user.first_name  %}
+        <h1>Welcome Admin</h1>
+    {% else %}
+        <h1>Welcome {{ user.first_name }}</h1>
+    {% endif %}
+{% endblock %}
