@@ -1,0 +1,20 @@
+{% extends 'basic\base.html' %}
+
+{% block body %}
+    {% if lecturer %}
+    <h2>Signing Up as a Lecturer</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Sign Up</button>
+    </form>
+    {% else %}
+    <h2>Signing Up as a Student</h2>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Sign Up</button>
+    </form>
+    {% endif %}
+{% endblock %}
+    
